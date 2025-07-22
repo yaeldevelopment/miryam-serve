@@ -2,7 +2,7 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ? äâãøú CORS
+// ? ï¿½ï¿½ï¿½ï¿½ï¿½ CORS
 
 builder.Services.AddCors(options =>
 {
@@ -16,7 +16,7 @@ builder.Services.AddCors(options =>
                   .AllowCredentials();
         });
 });
-// ? äåñôú ùéøåúéí (Controllers + Swagger)
+// ? ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (Controllers + Swagger)
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -30,15 +30,15 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
-    c.RoutePrefix = "swagger"; // àôùø ìùğåú àú äğúéá àí öøéê
+    c.RoutePrefix = "swagger"; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 });
-// ? Middleware - ÷áöéí ñèèééí + CORS
+// ? Middleware - ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + CORS
 
 
 app.UseStaticFiles(new StaticFileOptions
 {
-    ServeUnknownFileTypes = true, // îúéø ùìéçú ëì ñåâé ä÷áöéí
-    DefaultContentType = "application/octet-stream" // áøéøú îçãì
+    ServeUnknownFileTypes = true, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    DefaultContentType = "application/octet-stream" // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     ,
     OnPrepareResponse = ctx =>
     {
@@ -51,8 +51,8 @@ app.UseCors("AllowAll");
 app.UseRouting();
 app.UseAuthorization();
 
-// ? îéôåé ğúéáéí
+// ? ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 app.MapControllers();
 
-app.Run();
-//app.Run("http://0.0.0.0:8080"); // Ensure the app listens on 8080
+//app.Run();
+app.Run("http://0.0.0.0:8080"); // Ensure the app listens on 8080
