@@ -14,16 +14,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ApiKey": "881122212878697",
-        "ApiSecret": "FNISNl6iafJHwhCJ51USobCbCaY",
-        "CloudName": "drtxmwrmb",
-        "ConnectionStrings__mongodb": "mongodb+srv://yaeladmin:Ri4zAavIrZ8Z7RgG@cluster0.7esdq8m.mongodb.net",
-        "SecretKey": "12345678901234567890123456789012",
-        "database": "job",
-        "mail": "tripyaeleden@gmail.com",
-        "to_mail": "mtz0548591724@gmail.com",
-        "pass_mail": "anpckkcheirpwdbv"
+      
 
 
       },
