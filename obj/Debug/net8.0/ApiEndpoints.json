@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "server.Controllers.FunctionController",
+    "Method": "SendEmail",
+    "RelativePath": "Function/SendEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customer",
+        "Type": "server.Models.Customer",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
