@@ -34,22 +34,7 @@ app.UseSwaggerUI(c =>
 });
 // ? Middleware - ����� ������ + CORS
 
-
-app.UseStaticFiles(new StaticFileOptions
-{
-    ServeUnknownFileTypes = true, // ���� ����� �� ���� ������
-    DefaultContentType = "application/octet-stream" // ����� ����
-    ,
-    OnPrepareResponse = ctx =>
-    {
-        var origin = ctx.Context.Request.Headers["Origin"].ToString();
-        if (origin == "http://localhost:4200" || origin == "https://miryam-taxadvisor.netlify.app")
-        {
-            ctx.Context.Response.Headers.Append("Access-Control-Allow-Origin", origin);
-            ctx.Context.Response.Headers.Append("Access-Control-Allow-Credentials", "true");
-        }
-    }
-});
+app.UseStaticFiles(); // פשוט ככה בלי שום הגדרה נוספת
 app.UseCors("AllowAll");
 // ? Middleware - Routing + Authorization
 app.UseRouting();
