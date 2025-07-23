@@ -42,8 +42,12 @@ app.UseStaticFiles(new StaticFileOptions
     ,
     OnPrepareResponse = ctx =>
     {
-        ctx.Context.Response.Headers.Append("Access-Control-Allow-Origin", "http://localhost:4200");
-        ctx.Context.Response.Headers.Append("Access-Control-Allow-Origin", "https://miryam-taxadvisor.netlify.app");
+        var origin = ctx.Context.Request.Headers["Origin"].ToString();
+        if (origin == "http://localhost:4200" || origin == "https://miryam-taxadvisor.netlify.app")
+        {
+            ctx.Context.Response.Headers.Append("Access-Control-Allow-Origin", origin);
+            ctx.Context.Response.Headers.Append("Access-Control-Allow-Credentials", "true");
+        }
     }
 });
 app.UseCors("AllowAll");
