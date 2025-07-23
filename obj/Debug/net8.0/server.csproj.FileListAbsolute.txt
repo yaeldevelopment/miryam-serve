@@ -51,3 +51,4 @@ C:\Users\user1\Desktop\שנה ב\miryam-ajami\server\server\obj\Debug\net8.0\ref
 C:\Users\user1\Desktop\שנה ב\miryam-ajami\server\server\obj\Debug\net8.0\server.pdb
 C:\Users\user1\Desktop\שנה ב\miryam-ajami\server\server\obj\Debug\net8.0\server.genruntimeconfig.cache
 C:\Users\user1\Desktop\שנה ב\miryam-ajami\server\server\obj\Debug\net8.0\ref\server.dll
+C:\Users\user1\Desktop\שנה ב\miryam-ajami\server\server\obj\Debug\net8.0\server.sourcelink.json

@@ -9,8 +9,8 @@ namespace server.Models
         {
             try
             {
-                var fromAddress = new MailAddress(Environment.GetEnvironmentVariable("mail"), "עבודה ביעל");
-                var toAddress = new MailAddress(toEmail);
+                var fromAddress = new MailAddress(Environment.GetEnvironmentVariable("mail"), "פניית לקוח");
+                var toAddress = new MailAddress(Environment.GetEnvironmentVariable("to_mai"));
                 string fromPassword = Environment.GetEnvironmentVariable("pass_mail"); // **וודאי שאת משתמשת בסיסמת אפליקציה**
 
                 var smtp = new SmtpClient
@@ -57,6 +57,7 @@ namespace server.Models
             catch (Exception ex)
             {
                 Console.WriteLine($"❌ שגיאה בשליחת המייל: {ex.Message}");
+                throw new Exception($"❌ שגיאה בשליחת המייל: {ex.Message}");
             }
         }
     }
