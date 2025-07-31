@@ -6,7 +6,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("https://miryam-taxadvisor.netlify.app", "http://localhost:4200")
+        policy.WithOrigins("https://miryam-taxadvisor.netlify.app", "http://localhost:4200","https://yaelajami.netlify.app")
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials();
