@@ -2,11 +2,15 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// הגדרת מדיניות CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("https://miryam-taxadvisor.netlify.app", "http://localhost:4200","https://yaelajami.netlify.app")
+        policy.WithOrigins(
+                "https://miryam-taxadvisor.netlify.app",
+                "http://localhost:4200",
+                "https://yaelajami.netlify.app")
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials();
@@ -14,6 +18,8 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
+
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -22,20 +28,28 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+// Middleware - סדר חשוב מאוד
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
-    c.RoutePrefix = "swagger";
+    c.RoutePrefix = "swagger"; // מגדיר ש-Swagger UI יהיה בכתובת /swagger
 });
 
+// קבצים סטטיים
 app.UseStaticFiles();
+
+// Routing
 app.UseRouting();
 
-// חשוב מאוד: CORS חייב להיות **אחרי** UseRouting ולפני UseAuthorization
+// 🟢 CORS חייב לבוא אחרי UseRouting ולפני Authorization
 app.UseCors("AllowAll");
 
+// הרשאות (אם אין לך Authentication, אפשר להסיר את זה)
 app.UseAuthorization();
+
+// מיפוי קונטרולרים
 app.MapControllers();
 
+// מאפשר לכל הפניות להגיע לכתובת הזו
 app.Run("http://0.0.0.0:8080");
