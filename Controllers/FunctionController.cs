@@ -25,7 +25,7 @@ namespace server.Controllers
                           <p>  טלפון: {customer.Phone} <br/></p>
               <p>  אימייל: {customer.Email} <br/></p>
            
-            {customer.Message}  <p>  הודעה: {customer.Message}<br/></p>
+            <p>  הודעה: {customer.Message}<br/></p>
                 </body>
                 </html>";
       
