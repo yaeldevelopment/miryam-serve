@@ -12,7 +12,8 @@ builder.Services.AddCors(options =>
                 "http://localhost:4200",
                 "https://yaelajami.netlify.app")
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowCredentials();
     });
 });
 
@@ -34,17 +35,7 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
     c.RoutePrefix = "swagger"; // מגדיר ש-Swagger UI יהיה בכתובת /swagger
 });
-// תמיכה בבקשות OPTIONS ל־CORS
-app.Use(async (context, next) =>
-{
-    if (context.Request.Method == HttpMethods.Options)
-    {
-        context.Response.StatusCode = StatusCodes.Status200OK;
-        await context.Response.CompleteAsync();
-        return;
-    }
-    await next();
-});
+
 // קבצים סטטיים
 app.UseStaticFiles();
 
