@@ -12,8 +12,7 @@ builder.Services.AddCors(options =>
                 "http://localhost:4200",
                 "https://yaelajami.netlify.app")
               .AllowAnyMethod()
-              .AllowAnyHeader()
-              .AllowCredentials();
+              .AllowAnyHeader();
     });
 });
 
