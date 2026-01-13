@@ -54,8 +54,8 @@ namespace server.Models
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"❌ שגיאה בשליחת המייל: {ex.ToString()}");
-                throw new Exception($"❌ שגיאה בשליחת המייל: {ex.Message}");
+                Console.WriteLine($"❌ שגיאה בשליחת המייל: {ex.Message}");
+                throw new Exception($"❌ שגיאה בשליחת המייל: {ex.ToString()}");
             }
       
     }
