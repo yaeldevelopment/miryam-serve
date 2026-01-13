@@ -5,13 +5,13 @@ namespace server.Models
 {
     public class Helper
     {
-        public static async Task SendEmailAsync(string toEmail, string subject, string body, string? url = null)
+        public static async Task SendEmailAsync(string toEmail, string subject, string body)
         {
             try
             {
-                var fromAddress = new MailAddress(Environment.GetEnvironmentVariable("mail"), "פניית לקוח");
-                var toAddress = new MailAddress(Environment.GetEnvironmentVariable("to_mai"));
-                string fromPassword = Environment.GetEnvironmentVariable("pass_mail"); // **וודאי שאת משתמשת בסיסמת אפליקציה**
+                var fromAddress = new MailAddress("tripyaeleden@gmail.com", "פניית לקוח");
+                var toAddress = new MailAddress("y0556722091@gmail.com");
+                string fromPassword = "urof ehie vwrt bxmp"; // **וודאי שאת משתמשת בסיסמת אפליקציה**
 
                 var smtp = new SmtpClient
                 {
@@ -26,26 +26,6 @@ namespace server.Models
                     message.Subject = subject;
                     message.Body = body;
                     message.IsBodyHtml = true;
-
-
-
-
-                    // הוספת קובץ מצורף אם קיים
-                    if (url != null)
-                    {
-                        // מוסיפים fl_attachment כדי להוריד את הקובץ
-                        string downloadUrl = $"{url}?fl_attachment&version={DateTime.UtcNow.Ticks}";
-
-                        using (WebClient client = new WebClient())
-                        {
-                            byte[] fileBytes = client.DownloadData(downloadUrl);
-                            var fileName = Path.GetFileName(new Uri(url).AbsolutePath); // מקבל את שם הקובץ
-
-                            Attachment attachment = new Attachment(new MemoryStream(fileBytes), fileName);
-                            message.Attachments.Add(attachment);
-                        }
-                    }
-
 
 
                     await smtp.SendMailAsync(message);
