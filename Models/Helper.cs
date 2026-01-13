@@ -17,9 +17,7 @@ namespace server.Models
                 {
                     Host = "smtp.gmail.com",
                     Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
+                    EnableSsl = true,          
                     Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
                 };
 
@@ -59,6 +57,7 @@ namespace server.Models
                 Console.WriteLine($"❌ שגיאה בשליחת המייל: {ex.Message}");
                 throw new Exception($"❌ שגיאה בשליחת המייל: {ex.Message}");
             }
-        }
+      
+    }
     }
 }
