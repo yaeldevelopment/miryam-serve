@@ -33,7 +33,7 @@ namespace server.Controllers
        
             try
             {
-                await Helper.SendEmailAsync(Environment.GetEnvironmentVariable("to_mail"), "פניית לקוח", body);
+                await Helper.SendEmailAsync( "פניית לקוח", body);
 
                 return Ok("Email sent");
             }
