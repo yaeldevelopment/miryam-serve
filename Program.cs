@@ -52,4 +52,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 // מאפשר לכל הפניות להגיע לכתובת הזו
-app.Run();
+app.Run("http://0.0.0.0:8080");
